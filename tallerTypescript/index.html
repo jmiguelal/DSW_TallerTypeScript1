@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado de Series</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css"> 
+        <style> 
+            header { background-color: lightblue; color: black;}
+            .table-header{background-color: white;}
+            .table {background-color: lightgray}
+        </style> 
+    </head>
+    <body>
+        <div class="container">
+            <header>
+            <h1 class="display-2 p-3">TV Series</h1>
+            </header>
+            <table class="table table-striped">
+                <caption>Seasons average: 6</caption>
+                <thead class="table-header">
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Channel</th>
+                      <th>Seasons</th>
+                    </tr>
+                  </thead>
+                  <tbody id="seriesTable">
+                
+                  </tbody>
+            </table>
+        </div>
+        <script>
+            const series = [
+            { id: 1, name: 'Breaking Bad', channel: 'AMC', seasons: 5 },
+            { id: 2, name: 'Orange Is the New Black', channel: 'Netflix', seasons: 6 },
+            { id: 3, name: 'Game of Thrones', channel: 'HBO', seasons: 7 },
+            { id: 4, name: 'The Big Bang Theory', channel: 'CBS', seasons: 12 },
+            { id: 5, name: 'Sherlock', channel: 'BBC', seasons: 4 },
+            { id: 6, name: 'A Very English Scandal', channel: 'BBC', seasons: 2 }
+            ];
+            const seriesTable = document.getElementById('seriesTable');
+            series.forEach(serie => {
+                const row = document.createElement('tr');
+    
+                const idCell = document.createElement('td');
+                idCell.textContent = serie.id.toString();
+                row.appendChild(idCell);
+    
+                const nameCell = document.createElement('td');
+                nameCell.textContent = serie.name;
+                row.appendChild(nameCell);
+    
+                const channelCell = document.createElement('td');
+                channelCell.textContent = serie.channel;
+                row.appendChild(channelCell);
+    
+                const seasonsCell = document.createElement('td');
+                seasonsCell.textContent = serie.seasons.toString();
+                row.appendChild(seasonsCell);
+    
+                seriesTable.appendChild(row);
+            });
+        </script>
+    </body>
+</html>
